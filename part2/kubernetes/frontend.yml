@@ -39,7 +39,7 @@ spec:
     ports:
     - port: 80
       targetPort: 8000
-      nodePort: 30001
+      nodePort: 30000
   nodeSelector:
     kubernetes.io/robindemeyer: k3d-k3s-default-agent-2
 
