@@ -2,10 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: api
-  namespace: howest-api
+  namespace: exam-robindemeyer
   labels:
     # Replace this by your own name
-    createdBy: "Nathan-Segers"
+    createdBy: "Robin-DeMeyer"
   
 spec:
   replicas: 1
@@ -18,7 +18,7 @@ spec:
         app: api
     spec:
       containers:
-        - image: nathansegers/big_data_and_ai-24_may_api
+        - image: robindemeyer/big_data_and_ai-24_may_api
           imagePullPolicy: Always
           name: api-demo
           ports:
@@ -30,7 +30,12 @@ spec:
               port: 80
             initialDelaySeconds: 15
             periodSeconds: 10
-         
+          env:
+          - name: NAME
+            value: "Robin De Meyer"
+          - name: DATE
+            value: "2024-05-08"
+
 ---
 apiVersion: v1
 kind: Service
@@ -43,4 +48,4 @@ spec:
   ports:
     - port: 80
       targetPort: 8000
-      nodePort: 30002
+      nodePort: 30000
